@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "236ea063-62ab-46a1-ac79-372010089910",
+		"name": "Assinaturas Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33802841"
+	},
+	"item": [
+		{
+			"name": "Cadastro",
+			"item": [
+				{
+					"name": "Listar Cadastros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/cadastros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cadastros"
+							]
+						},
+						"description": "**Descrição**: Este endpoint retorna uma lista de todos os cadastros existentes.\n\n- **Método**: `GET`\n    \n- **Rota**: `/api/cadastros`\n    \n- **Parâmetros**: Nenhum\n    \n- **Resposta**: Retorna uma lista de objetos contendo informações de cada cadastro."
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codigo\": \"001\",\r\n    \"nome\": \"Fulano de Tal\",\r\n    \"email\": \"fulano@example.com\",\r\n    \"telefone\": \"123456789\",\r\n    \"endereco\": \"Rua Exemplo, 123\",\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"pais\": \"Brasil\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/cadastro/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cadastro",
+								"create"
+							]
+						},
+						"description": "**Descrição**: Este endpoint cria um novo cadastro com os dados fornecidos.\n\n- **Método**: `POST`\n    \n- **Rota**: `/api/cadastros`\n    \n- **Parâmetros**:\n    \n    - `codigo`: Código identificador do cadastro.\n        \n    - `nome`: Nome do cadastro.\n        \n    - `email`: Email do cadastro (deve ser único).\n        \n    - `telefone`: Número de telefone do cadastro (opcional).\n        \n    - `endereco`: Endereço do cadastro (opcional).\n        \n    - `cidade`: Cidade do cadastro (opcional).\n        \n    - `estado`: Estado do cadastro (opcional).\n        \n    - `pais`: País do cadastro (opcional).\n        \n- **Resposta**: Retorna o objeto do cadastro criado com um código de status `201`"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Cadastro",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Novo Nome\",\r\n    \"email\": \"novonome@example.com\",\r\n    \"telefone\": \"987654321\",\r\n    \"endereco\": \"Nova Rua, 456\",\r\n    \"cidade\": \"Rio de Janeiro\",\r\n    \"estado\": \"RJ\",\r\n    \"pais\": \"Brasil\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/cadastro/update/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cadastro",
+								"update",
+								"6"
+							]
+						},
+						"description": "**Descrição**: Este endpoint atualiza um cadastro existente com os dados fornecidos.\n\n- **Método**: `PUT`\n- **Rota**: `/api/cadastros/{id}`\n- **Parâmetros**:\n    - `id`: Identificador único do cadastro a ser atualizado.\n    - `codigo`: Código identificador do cadastro.\n    - `nome`: Nome do cadastro.\n    - `email`: Email do cadastro (deve ser único).\n    - `telefone`: Número de telefone do cadastro (opcional).\n    - `endereco`: Endereço do cadastro (opcional).\n    - `cidade`: Cidade do cadastro (opcional).\n    - `estado`: Estado do cadastro (opcional).\n    - `pais`: País do cadastro (opcional).\n- **Resposta**: Retorna o objeto do cadastro atualizado com um código de status `200`.\n- Nesse endpoint, pode ser enviado 1 a n campos, isto é, não é necessário enviar todos os dados para atualização do item no banco."
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Cadastro",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/cadastro/delete/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cadastro",
+								"delete",
+								"4"
+							]
+						},
+						"description": "**Descrição**: Este endpoint exclui um cadastro existente com base no ID fornecido.\n\n- **Método**: `DELETE`\n- **Rota**: `/api/cadastros/{id}`\n- **Parâmetros**:\n    - `id`: Identificador único do cadastro a ser excluído.\n- **Resposta**: Retorna uma mensagem de sucesso com um código de status `204` se a exclusão for bem-sucedida."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assinatura",
+			"item": [
+				{
+					"name": "Listar Assinaturas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/assinaturas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"assinaturas"
+							]
+						},
+						"description": "**Descrição**: Este endpoint retorna uma lista de todas as assinaturas existentes.\n\n- **Método**: `GET`\n    \n- **Rota**: `/api/assinaturas`\n    \n- **Parâmetros**: Nenhum\n    \n- **Resposta**: Retorna uma lista de objetos contendo informações de cada assinatura."
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Assinatura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cadastro_id\": 1,\r\n    \"descricao\": \"Descrição da assinatura\",\r\n    \"valor\": 99.99,\r\n    \"vencimento\": \"2024-05-14\",\r\n    \"inicio\": \"2024-05-10\",\r\n    \"fim\": \"2024-06-10\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/assinatura/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"assinatura",
+								"create"
+							]
+						},
+						"description": "**Descrição**: Este endpoint cria uma nova assinatura com os dados fornecidos.\n\n- **Método**: `POST`\n- **Rota**: `/api/assinaturas`\n- **Parâmetros**:\n    \n    - `cadastro_id`: ID do cadastro associado à assinatura.\n    - `descricao`: Descrição da assinatura.\n    - `valor`: Valor da assinatura.\n    - `vencimento`: Data de vencimento da assinatura.\n        \n    - `inicio`: Data de início da assinatura.\n    - `fim`: Data de término da assinatura (opcional).\n- **Resposta**: Retorna o objeto da assinatura criada com um código de status `201`."
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Assinatura",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cadastro_id\": 1,\r\n    \"descricao\": \"Assinatura Teste\",\r\n    \"valor\": 109.99,\r\n    \"vencimento\": \"2024-05-15\",\r\n    \"inicio\": \"2024-05-10\",\r\n    \"fim\": \"2024-06-10\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/assinatura/update/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"assinatura",
+								"update",
+								"3"
+							]
+						},
+						"description": "**Descrição**: Este endpoint atualiza uma assinatura existente com os dados fornecidos.\n\n- **Método**: `PUT`\n- **Rota**: `/api/assinaturas/{id}`\n- **Parâmetros**:\n    \n    - `id`: Identificador único da assinatura a ser atualizada.\n    - `cadastro_id`: ID do cadastro associado à assinatura.\n    - `descricao`: Descrição da assinatura.\n    - `valor`: Valor da assinatura.\n        \n    - `vencimento`: Data de vencimento da assinatura.\n        \n    - `inicio`: Data de início da assinatura.\n    - `fim`: Data de término da assinatura (opcional).\n- **Resposta**: Retorna o objeto da assinatura atualizada com um código de status `200`.\n- No caso de atualização, pode ser enviado 1 a n campos, isto é, não é necessário enviar todos os dados para atualização do item no banco."
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Assinatura",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/assinatura/delete/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"assinatura",
+								"delete",
+								"3"
+							]
+						},
+						"description": "**Descrição**: Este endpoint exclui uma assinatura existente com base no ID fornecido.\n\n- **Método**: `DELETE`\n    \n- **Rota**: `/api/assinaturas/{id}`\n    \n- **Parâmetros**:\n    \n    - `id`: Identificador único da assinatura a ser excluída.\n        \n- **Resposta**: Retorna uma mensagem de sucesso com um código de status `204` se a exclusão for bem-sucedida."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fatura",
+			"item": [
+				{
+					"name": "Listar Faturas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/faturas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"faturas"
+							]
+						},
+						"description": "**Descrição**: Este endpoint retorna uma lista de todas as faturas existentes.\n\n- **Método**: `GET`\n    \n- **Rota**: `/api/faturas`\n    \n- **Parâmetros**: Nenhum\n    \n- **Resposta**: Retorna uma lista de objetos contendo informações de cada fatura."
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Fatura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cadastro_id\": 1,\r\n    \"assinatura_id\": 1,\r\n    \"descricao\": \"Fatura teste - Maio 2024\",\r\n    \"vencimento\": \"2024-06-30\",\r\n    \"valor\": 100.50,\r\n    \"pago\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/fatura/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fatura",
+								"create"
+							]
+						},
+						"description": "**Descrição**: Este endpoint cria uma nova fatura com os dados fornecidos.\n\n- **Método**: `POST`\n    \n- **Rota**: `/api/faturas`\n    \n- **Parâmetros**:\n    \n    - `cadastro_id`: ID do cadastro associado à fatura.\n        \n    - `assinatura_id`: ID da assinatura associada à fatura.\n        \n    - `descricao`: Descrição da fatura.\n        \n    - `vencimento`: Data de vencimento da fatura.\n        \n    - `valor`: Valor da fatura.\n        \n    - `pago`: Indicador de pagamento da fatura (booleano).\n        \n- **Resposta**: Retorna o objeto da fatura criada com um código de status `201`."
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Fatura",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cadastro_id\": 1,\r\n    \"assinatura_id\": 1,\r\n    \"descricao\": \"Fatura teste - Junho 2024\",\r\n    \"vencimento\": \"2024-05-13\",\r\n    \"valor\": 150.50,\r\n    \"pago\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/fatura/update/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fatura",
+								"update",
+								"2"
+							]
+						},
+						"description": "**Descrição**: Este endpoint atualiza uma fatura existente com os dados fornecidos.\n\n- **Método**: `PUT`\n- **Rota**: `/api/faturas/{id}`\n- **Parâmetros**:\n    - `id`: Identificador único da fatura a ser atualizada.\n    - `cadastro_id`: ID do cadastro associado à fatura.\n    - `assinatura_id`: ID da assinatura associada à fatura.\n    - `descricao`: Descrição da fatura.\n    - `vencimento`: Data de vencimento da fatura.\n    - `valor`: Valor da fatura.\n    - `pago`: Indicador de pagamento da fatura (booleano).\n- **Resposta**: Retorna o objeto da fatura atualizada com um código de status `200`.\n    \n- No caso de atualização, pode ser enviado 1 a n campos, isto é, não é necessário enviar todos os dados para atualização do item no banco."
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Fatura",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/fatura/delete/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fatura",
+								"delete",
+								"3"
+							]
+						},
+						"description": "**Descrição**: Este endpoint exclui uma fatura existente com base no ID fornecido.\n\n- **Método**: `DELETE`\n    \n- **Rota**: `/api/faturas/{id}`\n    \n- **Parâmetros**:\n    \n    - `id`: Identificador único da fatura a ser excluída.\n        \n- **Resposta**: Retorna uma mensagem de sucesso com um código de status `204` se a exclusão for bem-sucedida."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
